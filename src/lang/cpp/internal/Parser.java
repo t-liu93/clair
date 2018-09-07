@@ -406,7 +406,7 @@ public class Parser extends ASTVisitor {
 								return f.getAbsolutePath();
 							}
 					}
-					err("Include " + include + " for " + currentFile + " not found");
+					// err("Include " + include + " for " + currentFile + " not found");
 					return null;// TODO: restore exception here
 				}
 
@@ -463,7 +463,7 @@ public class Parser extends ASTVisitor {
 		ISet macroExpansions = getMacroExpansionsFromTranslationUnit(tu);
 		ISet macroDefinitions = getMacroDefinitionsFromTranslationUnit(tu);
 		ISet methodOverrides = getMethodOverrides(tu);
-		IList headers = getHeaderList(headerList);
+		// IList headers = getHeaderList(headerList);
 		headerList = null; // After get the Rascal type List, set this to null for next time use
 
 		m3 = m3.asWithKeywordParameters().setParameter("comments", comments);
@@ -476,13 +476,13 @@ public class Parser extends ASTVisitor {
 		return vf.tuple(m3, result);
 	}
 
-	public IList getHeaderList(List<String> headerList) {
-		IListWriter listWriter = vf.listWriter();
-		for (String s : headerList) {
-			listWriter.append(vf.string(s));
-		}
-		return listWriter.done();
-	}
+	// public IList getHeaderList(List<String> headerList) {
+	// IListWriter listWriter = vf.listWriter();
+	// for (String s : headerList) {
+	// listWriter.append(vf.string(s));
+	// }
+	// return listWriter.done();
+	// }
 
 	public ISet getMethodOverrides(IASTTranslationUnit tu) {
 		NameCollector anc = new NameCollector();
